@@ -5,15 +5,16 @@ const TIMER = 3000;
 
 export default function DeleteConfirmation({ onConfirm, onCancel }) {
   useEffect(() => {
+    console.log('Timer Set')
     const timer = setTimeout(() => {
       onConfirm();
     }, 3000);
 
     return () => {
-      console.log('Clear')
       clearTimeout(timer);
+      console.log('Clear')
     };
-  }, [onConfirm]);
+  }, [onConfirm, onCancel]);
 
   return (
     <div id="delete-confirmation">
